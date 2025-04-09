@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Logo" width="150">
+    <h1>Register</h1>
+    <form id="registerForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <button type="submit">Register</button>
+      
+      <div class="error" id="errorMessage"></div>
+    </form>
+    <footer>
+      <p>Already have an account? <a href="login.html">Login here</a></p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('errorMessage');
+      
+      if (username && email && password) {
+        const user = {
+          username: username,
+          email: email,
+          password: password
+        };
+        
+        localStorage.setItem('user', JSON.stringify(user)); 
+        window.location.href = 'login.html'; 
+      } else {
+        errorMessage.textContent = 'Please fill all fields.';
+      }
+    });
+  </script>
+</body>
+</html>
