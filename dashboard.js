@@ -8,7 +8,8 @@ let products = [
   { name: 'Product 6', price: 3500 },
   { name: 'Product 7', price: 4000 },
   { name: 'Product 8', price: 4500 },
-  { name: 'Product 9', price: 5000 }
+  { name: 'Product 9', price: 5000 },
+  { name: 'Product 10', price: 5500 }
 ];
 
 function displayProducts() {
@@ -63,15 +64,13 @@ document.getElementById('addProductForm').addEventListener('submit', function(ev
   const productName = document.getElementById('productName').value;
   let productPrice = parseFloat(document.getElementById('productPrice').value);
 
-  if (productName && !isNaN(productPrice) && productPrice >= 1000 && productPrice % 500 === 0) {
+  
     products.push({ name: productName, price: productPrice });
     displayProducts(); 
     document.getElementById('productName').value = ''; 
     document.getElementById('productPrice').value = '';
     alert('Product added successfully!');
-  } else {
-    alert('Please enter a valid product price (at least 1000 so\'m and a multiple of 500).');
-  }
+
 });
 
 displayProducts();

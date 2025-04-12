@@ -20,13 +20,13 @@ body {
   
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
   }
   
   .product-item {
     background-color: white;
-    padding: 20px;
+    padding: 80px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -112,5 +112,18 @@ body {
   
   .btn:hover {
     background-color: #45a049;
+  }
+  
+  body, html {
+    height: 100%;
+  }
+  
+  .container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
   
