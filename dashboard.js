@@ -64,13 +64,16 @@ document.getElementById('addProductForm').addEventListener('submit', function(ev
   const productName = document.getElementById('productName').value;
   let productPrice = parseFloat(document.getElementById('productPrice').value);
 
-  
+  if (productPrice > 0){
     products.push({ name: productName, price: productPrice });
     displayProducts(); 
     document.getElementById('productName').value = ''; 
     document.getElementById('productPrice').value = '';
     alert('Product added successfully!');
-
+  }
+  else{
+    alert('Product can not be negativ');
+  }
 });
 
 displayProducts();
