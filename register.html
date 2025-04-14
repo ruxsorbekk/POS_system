@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
+  <title>Register - Supermarket POS</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Register</h1>
-    <form id="registerForm">
-      <label for="username">Username:</label>
+  <div class="container auth-container">
+    <form id="registerForm" class="auth-form">
+      <h1>Create Account</h1>
+      
+      <label for="username">Username</label>
       <input type="text" id="username" name="username" required>
       
-      <label for="email">Email:</label>
+      <label for="email">Email</label>
       <input type="email" id="email" name="email" required>
       
-      <label for="password">Password:</label>
+      <label for="password">Password</label>
       <input type="password" id="password" name="password" required>
-      <label for="confirmPassword">Confirm Password:</label>
+      
+      <label for="confirmPassword">Confirm Password</label>
       <input type="password" id="confirmPassword" name="confirmPassword" required>
 
       <button type="submit">Register</button>
@@ -37,7 +40,13 @@
       const username = document.getElementById('username').value;
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
       const errorMessage = document.getElementById('errorMessage');
+      
+      if (password !== confirmPassword) {
+        errorMessage.textContent = 'Passwords do not match';
+        return;
+      }
       
       if (username && email && password) {
         const user = {
@@ -47,6 +56,7 @@
         };
         
         localStorage.setItem('user', JSON.stringify(user)); 
+        alert('Registration successful! Please login.');
         window.location.href = 'login.html'; 
       } else {
         errorMessage.textContent = 'Please fill all fields.';

@@ -2,68 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - Supermarket POS</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .navbar {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      background-color: #1976d2;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: sans-serif;
-    }
-
-    .navbar a:hover {
-      text-decoration: underline;
-    }
-
-    .profile-container {
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-    }
-
-    .profile-container h2 {
-      text-align: center;
-      color: #333;
-    }
-
-    .profile-info {
-      margin-top: 20px;
-      font-size: 18px;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar">
     <a href="dashboard.html">🏠 Home</a>
     <a href="profile.html">👤 Profile</a>
     <a href="about.html">ℹ️ About</a>
+    <a href="support.html">💬 Support</a>
+    <button id="exit-btn">Exit</button>
   </nav>
 
   <div class="profile-container">
     <h2>User Profile</h2>
     <div class="profile-info">
       <p><strong>Username:</strong> <span id="profile-username">Loading...</span></p>
-      <p><strong>Email:</strong> <span id="profile-email">user@example.com</span></p>
+      <p><strong>Email:</strong> <span id="profile-email">Loading...</span></p>
+      <p><strong>Account Created:</strong> <span id="profile-created">Today</span></p>
     </div>
   </div>
 
   <script>
+    // Get user data from localStorage
     const user = JSON.parse(localStorage.getItem('user'));
-    document.getElementById('profile-username').textContent = user?.username || 'Unknown';
+    
+    // Display user information
+    if (user) {
+      document.getElementById('profile-username').textContent = user.username || 'Unknown';
+      document.getElementById('profile-email').textContent = user.email || 'No email provided';
+    } else {
+      document.getElementById('profile-username').textContent = 'Not logged in';
+      document.getElementById('profile-email').textContent = 'Not available';
+    }
+    
+    // Exit button action
+    document.getElementById('exit-btn').addEventListener('click', function () {
+      window.location.href = 'login.html';
+    });
   </script>
 </body>
 </html>

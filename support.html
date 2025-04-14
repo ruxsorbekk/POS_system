@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support - POS System</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    .support-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .support-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .support-container label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .support-container input,
+    .support-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    .support-container button {
+      margin-top: 20px;
+      width: 100%;
+      background-color: #1976d2;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .support-container button:hover {
+      background-color: #0d47a1;
+    }
+    
+  </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="dashboard.html">🏠 Home</a>
+        <a href="profile.html">👤 Profile</a>
+        <a href="about.html">ℹ️ About</a>
+        <a href="support.html">💬 Support</a>
+        <button id="exit-btn">Exit</button>
+      </nav>
+    
+  <div class="support-container">
+    <h2>Support</h2>
+    <form id="supportForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('supportForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you! Your message has been submitted.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
